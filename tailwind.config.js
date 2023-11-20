@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'sky' : "url('/Parallax/Sky.png')",
+      },
+      colors: {
+        mountain : '#1A1644'
+      }
+    },
   },
   plugins: [],
 }

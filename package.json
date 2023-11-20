@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +14,8 @@
     "@tresjs/cientos": "^3.6.0",
     "@tresjs/core": "^3.5.0",
     "three": "^0.158.0",
-    "vue": "^3.3.8"
+    "vue": "^3.3.8",
+    "vue-parallaxy": "^1.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.0",
