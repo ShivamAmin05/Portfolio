@@ -18,6 +18,11 @@ import Timeline from './components/timeline.vue'
       <Room class=" justify-center items-start" />
     </div>
   </div>
+  <div class="flex justify-center">
+    <h1 class="text-6xl font-bold" v-motion-slide-visible-left>
+      Experiences
+    </h1>
+  </div>
   <Timeline />
   <div>
     
