@@ -28,7 +28,7 @@ onLoop(({ delta, elapsed }) => {
 </script>
 
 <template>
-    <TresCanvas clear-color="#1A1644">
+    <TresCanvas clear-color="#1A1644" v-motion-slide-visible-right>
         <TresPerspectiveCamera />
         <OrbitControls />
         <TresMesh ref="roomRef">
@@ -36,7 +36,7 @@ onLoop(({ delta, elapsed }) => {
                 <GLTFModel path="IsoBedroom.glb" />
             </Suspense>
         </TresMesh>
-        <TresAmbientLight :intensity="5" />
+        <TresAmbientLight :intensity="1" />
         <TresDirectionalLight :position="[-4, 8, 4]" :intensity="1.5" cast-shadow />
         <TresDirectionalLight :position="[-4, 30, 4]" :intensity="0.2" />
     </TresCanvas>

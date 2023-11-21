@@ -13,9 +13,11 @@
   "dependencies": {
     "@tresjs/cientos": "^3.6.0",
     "@tresjs/core": "^3.5.0",
+    "@vueuse/motion": "^2.0.0",
     "three": "^0.158.0",
     "vue": "^3.3.8",
-    "vue-parallaxy": "^1.1.1"
+    "vue-parallaxy": "^1.1.1",
+    "vuetify": "^3.4.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.0",
