@@ -4,6 +4,8 @@ import { TresCanvas, useRenderLoop } from
 import { shallowRef } from 'vue';
 import { GLTFModel, OrbitControls, } from '@tresjs/cientos'
 
+import Room from '/Models/IsoBedroom.glb'
+
 
 const { onLoop } = useRenderLoop()
 
@@ -23,17 +25,15 @@ onLoop(({ delta, elapsed }) => {
         roomRef.value.position.y = Math.sin(elapsed) / 2
     }
 })
-
-
 </script>
 
 <template>
-    <TresCanvas clear-color="#1A1644" v-motion-slide-visible-right>
+    <TresCanvas alpha v-motion-slide-visible-right>
         <TresPerspectiveCamera />
         <OrbitControls />
         <TresMesh ref="roomRef">
             <Suspense>
-                <GLTFModel path="IsoBedroom.glb" />
+                <GLTFModel :path="Room"/>
             </Suspense>
         </TresMesh>
         <TresAmbientLight :intensity="1" />

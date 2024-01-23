@@ -1,32 +1,55 @@
 <script setup>
+import imagePath from '/BlueHills.jpg'
 import Room from './components/room.vue'
 import Intro from './components/intro.vue'
 import Timeline from './components/timeline.vue'
+import Skills from './components/skills.vue'
 
 
 
 </script>
 
+<style>
+:root {
+  background-image: url('/BlueHills.jpg'); 
+  background-size: 100% 100%;
+}
+</style>
+
 <template>
   <Intro />
-  <div class=" w-screen flex flex-row mt-40">
-    <div class="w-1/2 flex flex-col">
-      <h1 class="w-1/2 text-6xl font-bold text-shadow shadow-black" v-motion-slide-visible-left>About Me</h1>
-      <p class=" font-medium" v-motion-slide-visible-left>I am a freshman majoring in computer science at the university of Maryland, College Park. I
-        have previous experience with programming languages including java, python, c#, html, css, and javascript.</p>
+  <div class=" h-64 bg-gradient-to-b from-foreground from-20% to-background">
+  </div>
+  <!-- <img :src="Background" class=" bg-fixed absolute relative h-full w-full"/> -->
+  <div class="logo" :style="{ backgroundImage: `url(${imagePath})` }"></div>
+  <div class="w-screen h-screen flex flex-row mt-40">
+    <div class="w-1/2 ml-10 mr-10">
+      <h1 class="text-6xl font-bold text-shadow shadow-black text-center" v-motion-pop-visible>About Me</h1>
+      <p class="font-medium text-center" v-motion-slide-visible-left>
+        I am a freshman majoring in computer science at the university of Maryland, College Park. I have previous experience with programming languages including java, python, c#, html, css, and javascript.
+      </p>
     </div>
-    <div class='w-1/2 h-screen flex flex-row relative'>
-      <Room class=" justify-center items-start" />
+    <div class="w-1/2">
+      <Room />
     </div>
   </div>
   <div class="flex justify-center">
-    <h1 class="text-6xl font-bold text-shadow shadow-black" v-motion-slide-visible-left>
+    <h1 class="text-6xl font-bold text-shadow shadow-black mt-5" v-motion-pop-visible>
       Experiences
     </h1>
   </div>
   <Timeline />
-  <div>
-    
-</div>
+  <div class="flex justify-center">
+    <h1 class="text-6xl font-bold text-shadow shadow-black mb-10" v-motion-pop-visible>
+      Skills
+    </h1>
+  </div>
+  <Suspense>
+    <div class="h-screen w-screen">
+      <div class="h-1/2">
+        <Skills />
+      </div>
+    </div>
+  </Suspense>
 </template>
-
+      

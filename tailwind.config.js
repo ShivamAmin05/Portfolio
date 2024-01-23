@@ -7,9 +7,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'sky' : "url('/Parallax/Sky.png')",
-      },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
@@ -17,7 +14,8 @@ export default {
       },
       colors: {
         foreground : '#1A1644',
-        rock : '#152F69'
+        rock : '#152F69',
+        background : '#6573B0'
       }
     },
   },
