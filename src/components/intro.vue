@@ -47,8 +47,6 @@ const handleScroll = (evt) => {
 <template>
     <div class='h-screen relative flex flex-col justify-start items-center'>
         <img :src="Sky" class="h-full absolute" v-motion-fade />
-        <img :src="Stars" class="h-full absolute" ref="stars" v-motion-fade />
-        <img :src="Clouds" class="h-full absolute" ref="clouds" v-motion-fade />
         <h1 class='font-extrabold text-6xl display-1 mt-28 text-white text-shadow shadow-purple-900' ref="greeting"
             v-motion-fade>
             Hi, I'm
@@ -56,6 +54,8 @@ const handleScroll = (evt) => {
         <h1 class='font-extrabold text-6xl text-white text-shadow shadow-purple-900' ref="name" v-motion-fade>
             Shivam
         </h1>
+        <img :src="Stars" class="h-full absolute" ref="stars" v-motion-fade />
+        <img :src="Clouds" class="h-full absolute" ref="clouds" v-motion-fade />
         <img :src="Mountains" class="h-full absolute" ref="mountain" v-motion-fade />
         <img :src="BackTrees" class="h-full absolute" ref="backTrees" v-motion-fade />
         <img :src="ForeGround" class="h-full absolute" ref="foreGround" v-motion-fade />

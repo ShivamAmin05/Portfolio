@@ -4,23 +4,13 @@ import Room from './components/room.vue'
 import Intro from './components/intro.vue'
 import Timeline from './components/timeline.vue'
 import Skills from './components/skills.vue'
-
-
-
+import Projects from './components/projects.vue'
 </script>
-
-<style>
-:root {
-  background-image: url('/BlueHills.jpg'); 
-  background-size: 100% 100%;
-}
-</style>
 
 <template>
   <Intro />
   <div class=" h-64 bg-gradient-to-b from-foreground from-20% to-background">
   </div>
-  <!-- <img :src="Background" class=" bg-fixed absolute relative h-full w-full"/> -->
   <div class="logo" :style="{ backgroundImage: `url(${imagePath})` }"></div>
   <div class="w-screen h-screen flex flex-row mt-40">
     <div class="w-1/2 ml-10 mr-10">
@@ -51,5 +41,11 @@ import Skills from './components/skills.vue'
       </div>
     </div>
   </Suspense>
+  <div class="flex justify-center">
+    <h1 class="text-6xl font-bold text-shadow shadow-black mb-10" v-motion-pop-visible>
+      Projects
+    </h1>
+  </div>
+  <Projects />
 </template>
       

@@ -94,6 +94,27 @@ import First from '/Logos/First.png'
                                     </v-row>
                                 </v-card>
                             </v-timeline-item>
+                            <v-timeline-item size="large" dot-color="#1A1644" v-motion-fade>
+                                <template v-slot:icon>
+                                    <img :src="First" v-motion-pop />
+                                </template>
+                                <v-card tile="" v-motion-slide-visible-right>
+                                    <v-row align="start" class="bg-foreground">
+                                        <v-col>
+                                            <h1 class=" text-white font-bold text-4xl text-center pt-4 text-shadow shadow-black">Coding Club Co-lead</h1>
+                                                <div class=" text-white font-semibold p-6">
+                                                    <li>
+                                                        Inventoried and recorded problems with 15 laptops including defective hard drives, motherboards, batteries, and RAM
+                                                    </li>
+                                                    <li>
+                                                        Repaired computers by replacing parts, and installing Ubuntu operating system to improve system performance
+                                                    </li>
+                                                </div>
+                                                <v-card-subtitle class='bg-slate-500 text-white'>2021</v-card-subtitle>
+                                            </v-col>
+                                        </v-row>
+                                    </v-card>
+                                </v-timeline-item>
                         </v-timeline>
                     </v-app>
                 </template>
