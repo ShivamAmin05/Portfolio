@@ -2,6 +2,7 @@
 import TensorFlow from '/Logos/Tensorflow.svg'
 import Scratch from '/Logos/Scratch.png'
 import First from '/Logos/First.png'
+import Ubuntu from '/Logos/Ubuntu.png'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import First from '/Logos/First.png'
                         <img :src="TensorFlow" v-motion-pop />
                     </template>
                     <v-card tile="" v-motion-slide-visible-right>
-                        <v-row align="start" class="bg-foreground">
+                        <v-row align="start" class="bg-foreground shadow-2xl">
                             <v-col>
                                 <h1 class=" text-white font-bold text-4xl text-center pt-4 text-shadow shadow-black">AI Club
                                     Vice President</h1>
@@ -96,7 +97,7 @@ import First from '/Logos/First.png'
                             </v-timeline-item>
                             <v-timeline-item size="large" dot-color="#1A1644" v-motion-fade>
                                 <template v-slot:icon>
-                                    <img :src="First" v-motion-pop />
+                                    <img :src="Ubuntu" v-motion-pop />
                                 </template>
                                 <v-card tile="" v-motion-slide-visible-right>
                                     <v-row align="start" class="bg-foreground">
