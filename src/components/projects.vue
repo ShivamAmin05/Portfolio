@@ -4,9 +4,59 @@ import Unity from '/Logos/Unity.png'
 import CS50 from '/Logos/cs50.jpeg'
 import TTT from '/Logos/TTT.png'
 import Battleship from '/Logos/Battleship.png'
+import Canvas from '/Logos/Canvas.png'
+import Backtesting from '/Logos/BackTesting.png'
 
 </script>
 <template>
+    <div class="flex flex-row">
+        <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-left>
+            <Tilt>
+                <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
+                    <h1 class="mb-2 text-2xl font-bold">Canvas-AI Chrome Extension(Palette)</h1>
+                    <section class="flex items-center">
+                        <img :src="Canvas" class="w-8 h-8 mr-4 rounded" />
+                        <h2 class="font-2xl">2024-Present</h2>
+                    </section>
+                    <li>
+                        Creating fluid and reactive UI to display text input and responses utilizing Typescript with React and Tailwind css
+                    </li>
+                    <li>
+                        Utilizing Python web scrapper with Canvas LMS API to allow users to collect information about their canvas courses 
+                    </li>
+                    <li>
+                        Hosting llama llm locally on linux cloud vm allowing constant access across several different devices
+                    </li>
+                    <li>
+                        Passing in canvas data along with user query into llama llm to generate responses relating to canvas info 
+                    </li>
+                </div>
+            </Tilt>
+        </div>
+        <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-right>
+            <Tilt>
+                <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
+                    <h1 class="mb-2 text-2xl font-bold">Apex Quant Backtesting Engine	</h1>
+                    <section class="flex items-center">
+                        <img :src="Backtesting" class="w-8 h-8 mr-4 rounded" />
+                        <h2 class="font-2xl">2024-Present</h2>
+                    </section>
+                    <li>
+                        Obtaining Forex pair price data using Yahoo Finance and processing with Pandas data frame for simplified manipulation
+                    </li>
+                    <li>
+                        Calculating long and short-term moving average to simulate trading strategy which holds and sells based on average crossovers
+                    </li>
+                    <li>
+                        Implementing risk management strategy which limits position size based on capital and stops trading if loss exceeds a threshold
+                    </li>
+                    <li>
+                        Plotting equity curve with Matplotlib and calculating key statistics including winning percentage and total profit/loss
+                    </li>
+                </div>
+            </Tilt>
+        </div>
+    </div>
     <div class="flex flex-row">
         <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-left>
             <Tilt>
@@ -54,7 +104,7 @@ import Battleship from '/Logos/Battleship.png'
                             grayscale, blur, and outlines.
                         </li>
                         <li>
-                            
+                            Learned to encrypt and decrypt data in C utilizing some common cipher technique including substitution cipher and Caesar shift
                         </li>
                     </div>
                 </Tilt>
@@ -77,12 +127,6 @@ import Battleship from '/Logos/Battleship.png'
                             Utilized minimax algorithm to allow computer to always select the most optimal move, leading to a
                             win or draw every game
                         </li>
-                        <li>
-                            
-                        </li>
-                        <li>
-                            
-                        </li>
                     </div>
                 </Tilt>
             </div>
@@ -101,12 +145,6 @@ import Battleship from '/Logos/Battleship.png'
                         <li>
                             Allowed players to play against a bot and implemented hunt algorithm to improve average performance
                             over random guesses
-                        </li>
-                        <li>
-                            
-                        </li>
-                        <li>
-                            
                         </li>
                     </div>
                 </Tilt>

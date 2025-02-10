@@ -20,84 +20,88 @@ import vue from '/Models/Skills/VueBall.glb'
 <template>
 
     <TresCanvas alpha v-motion-slide-visible-bottom>
-        <TresPerspectiveCamera :position="[0, 10, 0]" :look-at="[0, 10, 0]"/>
-        <OrbitControls :enable-pan="false" :max-polar-angle="1.4" :min-polar-angle="-1.4" :max-azimuth-angle="0.4" :min-azimuth-angle="-0.4" :enable-zoom="false"/>
+        <TresPerspectiveCamera :position="[0, 10, 0]" :look-at="[0, 10, 0]" />
+        <OrbitControls :enable-pan="false" :max-polar-angle="1.4" :min-polar-angle="-1.4" :max-azimuth-angle="0.4"
+            :min-azimuth-angle="-0.4" :enable-zoom="false" />
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[-6, 0, -2]">
                 <Suspense>
-                    <GLTFModel :path="java"/>
+                    <GLTFModel :path="java" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[-3, 0, -2]">
                 <Suspense>
-                    <GLTFModel :path="python"/>
+                    <GLTFModel :path="python" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[0, 0, -2]">
                 <Suspense>
-                    <GLTFModel :path="javascript"/>
+                    <GLTFModel :path="javascript" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[-6, 0, 2]">
                 <Suspense>
-                    <GLTFModel :path="html"/>
+                    <GLTFModel :path="html" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[-3, 0, 2]">
                 <Suspense>
-                    <GLTFModel :path="css"/>
+                    <GLTFModel :path="css" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[0, 0, 2]">
                 <Suspense>
-                    <GLTFModel :path="github"/>
+                    <GLTFModel :path="github" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[3, 0, 2]">
                 <Suspense>
-                    <GLTFModel :path="csharp"/>
+                    <GLTFModel :path="csharp" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[3, 0, -2]">
                 <Suspense>
-                    <GLTFModel :path="blender"/>
+                    <GLTFModel :path="blender" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[6, 0, 2]">
                 <Suspense>
-                    <GLTFModel :path="unity"/>
+                    <GLTFModel :path="unity" />
                 </Suspense>
             </TresMesh>
         </Levioso>
         <Levioso rotation-factor="0.2" speed="3" float-factor="5">
             <TresMesh :position="[6, 0, -2]">
                 <Suspense>
-                    <GLTFModel :path="vue"/>
+                    <GLTFModel :path="vue" />
                 </Suspense>
             </TresMesh>
         </Levioso>
-            <TresAmbientLight :intensity="1" />
-            <TresDirectionalLight :intensity="2" :position="[0, 5, 2]" />
-            <TresDirectionalLight :intensity="1" :position="[6, -15, -2]" />
-            <!-- <TresDirectionalLight :intensity="10" :position="[-6, -3, 2]" /> -->
-        </TresCanvas>
-        <p class="font-medium text-center mt-5" v-motion-slide-visible-left>Java, Python, JavaScript, Blender, Vue, HTML, CSS, Github, C#, Unity
-        </p>
-    </template>
-    
+        <TresAmbientLight :intensity="1" />
+        <TresDirectionalLight :intensity="2" :position="[0, 5, 2]" />
+        <TresDirectionalLight :intensity="1" :position="[6, -15, -2]" />
+        <!-- <TresDirectionalLight :intensity="10" :position="[-6, -3, 2]" /> -->
+    </TresCanvas>
+    <p class="font-medium text-center mt-5 text-shadow shadow-black text-lg" v-motion-slide-visible-left>Java, Python,
+        JavaScript, Blender, Vue, HTML, CSS, Github, C#, Unity
+    </p>
+    <p class="font-medium text-center mt-5 text-shadow shadow-black text-md" v-motion-slide-visible-left>Typescript,
+        React, C, Git, SQL
+    </p>
+</template>
