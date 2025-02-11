@@ -29,11 +29,11 @@ onLoop(({ delta, elapsed }) => {
 
 <template>
     <TresCanvas alpha v-motion-slide-visible-right>
-        <TresPerspectiveCamera />
-        <OrbitControls />
+        <TresPerspectiveCamera :zoom="0.6" />
+        <OrbitControls :enable-zoom="false" />
         <TresMesh ref="roomRef">
             <Suspense>
-                <GLTFModel :path="Room"/>
+                <GLTFModel :path="Room" />
             </Suspense>
         </TresMesh>
         <TresAmbientLight :intensity="1" />

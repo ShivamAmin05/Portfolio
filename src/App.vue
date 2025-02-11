@@ -9,36 +9,30 @@ import Projects from './components/projects.vue'
 
 <template>
   <Intro />
-  <div class=" h-64 bg-gradient-to-b from-foreground from-0% to-background">
+  <div class="h-64 bg-gradient-to-b from-foreground from-20% to-transparent">
   </div>
   <div class="logo" :style="{ backgroundImage: `url(${imagePath})` }"></div>
-  <div class="w-screen h-screen flex flex-row mt-40">
-    <div class="w-1/2 ml-10 mr-10 p-10">
-      <h1 class="text-8xl font-bold text-shadow shadow-black text-center" v-motion-pop-visible>About Me</h1>
-      <p class="font-medium text-shadow shadow-black text-lg p-2 text-center" v-motion-slide-visible-left>
-        I am a Sophomore majoring in computer science and mathematics at the university of Maryland, College Park. I
-        have experience utilizing a variety of languages and frameworks in software projects including HTML/CSS,
-        Javascript/Typescript, Python, Java, C, C#, Unity, SQL, Vue, and React.
-      </p>
-      <br>
-      <p class="font-medium text-shadow shadow-black text-lg p-2 text-center" v-motion-slide-visible-left>
-        I am passionate about learning new technologies and I am always looking for new ways to utilize my skills. I
-        believe that computer science is a field with endless opportunities and I hope to continue improving as a
-        developer so I can make an impact in the industry.
+  <div class="w-screen h-screen flex flex-col md:flex-row mt-40 px-5 md:px-10">
+    <div class="w-full md:w-1/2 p-5 text-center">
+      <h1 class="text-4xl md:text-8xl font-bold text-shadow shadow-black" v-motion-pop-visible>
+        About Me
+      </h1>
+      <p class="font-medium text-shadow shadow-black text-lg md:text-xl p-2">
+        I am a Sophomore majoring in computer science and mathematics at the University of Maryland, College Park.
       </p>
     </div>
-    <div class="w-1/2">
+    <div class="w-full md:w-1/2 p-5">
       <Room />
     </div>
   </div>
-  <div class="flex justify-center">
-    <h1 class="text-8xl font-bold text-shadow shadow-black mt-5" v-motion-pop-visible>
+  <div class="flex justify-center mt-10">
+    <h1 class="text-4xl md:text-8xl font-bold text-shadow shadow-black" v-motion-pop-visible>
       Experiences
     </h1>
   </div>
   <Timeline />
-  <div class="flex justify-center">
-    <h1 class="text-8xl font-bold text-shadow shadow-black mb-10" v-motion-pop-visible>
+  <div class="flex justify-center mt-10">
+    <h1 class="text-4xl md:text-8xl font-bold text-shadow shadow-black" v-motion-pop-visible>
       Skills
     </h1>
   </div>
@@ -49,8 +43,8 @@ import Projects from './components/projects.vue'
       </div>
     </div>
   </Suspense>
-  <div class="flex justify-center">
-    <h1 class="text-8xl font-bold text-shadow shadow-black mb-10" v-motion-pop-visible>
+  <div class="flex justify-center mt-10">
+    <h1 class="text-4xl md:text-8xl font-bold text-shadow shadow-black" v-motion-pop-visible>
       Projects
     </h1>
   </div>
