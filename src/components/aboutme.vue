@@ -2,13 +2,14 @@
 import Laptop from './laptop.vue'
 </script>
 <template>
-    <div class="w-screen h-screen flex flex-col md:flex-row mt-40 px-5 md:px-10">
+    <div class="w-full flex flex-col md:flex-row px-5 md:px-10 gap-10">
+        <!-- Text section -->
         <div class="w-full md:w-1/2 p-5 text-center md:text-left flex flex-col justify-center">
-            <h1 class="text-4xl md:text-8xl font-bold mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 <font-awesome-icon :icon="['fas', 'book-open-reader']" />
                 About Me
             </h1>
-            <p class="font-mediumtext-lg md:text-lg leading-relaxed">
+            <p class="font-medium text-lg md:text-lg leading-relaxed">
                 I'm a junior at the University of Maryland, College Park, pursuing dual degrees in Computer Science and
                 Mathematics. My journey into technology began in high school, and what started as curiosity has grown
                 into a genuine passion for using code to solve meaningful problems.
@@ -23,8 +24,10 @@ import Laptop from './laptop.vue'
                 contribute to innovative solutions that make a real impact.
             </p>
         </div>
+
+        <!-- Canvas section -->
         <div class="w-full md:w-1/2 p-5 flex items-center justify-center">
-            <div class="w-full min-h-[300px] md:h-2/3">
+            <div class="w-full h-[300px] md:h-full">
                 <Laptop />
             </div>
         </div>
