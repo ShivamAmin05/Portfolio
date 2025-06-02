@@ -43,13 +43,13 @@ const handleScroll = (evt) => {
 <template>
     <div class='h-screen w-screen relative flex flex-col justify-start items-center parallax-container'>
         <img :src="Sky" class="parallax-image" v-motion-fade />
-        <h1 class='font-extrabold text-6xl display-1 mt-28 text-white text-shadow shadow-purple-900 no-select z-10 relative'
+        <h1 class='font-extrabold text-6xl display-1 mt-28 text-white text-shadow shadow-purple-900 no-select z-0 relative'
             ref="greeting" v-motion-fade>
             Hi
             <font-awesome-icon :icon="['fas', 'hand']" shake size="xs" />,
             I'm
         </h1>
-        <h1 class='font-extrabold text-6xl text-white text-shadow shadow-purple-900 no-select z-10 relative' ref="name"
+        <h1 class='font-extrabold text-6xl text-white text-shadow shadow-purple-900 no-select z-0 relative' ref="name"
             v-motion-fade>
             Shivam
         </h1>
