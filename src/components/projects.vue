@@ -1,154 +1,351 @@
 <script setup>
+import { ref, onMounted, nextTick } from 'vue'
 import Tilt from 'vanilla-tilt-vue'
-import Unity from '/Logos/Unity.png'
-import CS50 from '/Logos/cs50.jpeg'
-import TTT from '/Logos/TTT.png'
-import Battleship from '/Logos/Battleship.png'
-import Canvas from '/Logos/Canvas.png'
-import Backtesting from '/Logos/BackTesting.png'
 
+const visibleItems = ref(new Set())
+
+const projects = ref([
+    {
+        id: 1,
+        title: "Learning the Unspoken",
+        period: "2024-Present",
+        icon: "hexagon-nodes",
+        logo: "volume-high", // Replace with actual path or use Font Awesome
+        logoType: "icon", // "image" or "icon" or "emoji"
+        summary: "Award-winning machine learning project that achieved 1st place out of 300+ participants for developing an innovative classification system for nonverbal vocalizations in autistic individuals using advanced audio processing and deep learning techniques.",
+        technologies: ["Python", "Polars", "Pytorch", , "Scikit-learn", "Librosa", "Javascript", "HTML", "CSS"],
+        links: [
+            { type: "website", url: "https://learningtheunspoken.github.io", label: "View Website" }
+        ]
+    },
+    {
+        id: 2,
+        title: "Canvas-AI Chrome Extension (Palette)",
+        period: "2024-Present",
+        icon: "comment-nodes",
+        logo: "school-circle-exclamation",
+        logoType: "icon",
+        summary: "Intelligent Chrome extension that integrates AI capabilities with Canvas LMS to provide personalized academic assistance. Features a responsive UI and cloud-hosted LLM for seamless cross-device functionality.",
+        technologies: ["TypeScript", "React", "Tailwind CSS", "Python", "Canvas LMS API", "Llama LLM"],
+        links: [
+            { type: "code", url: "https://github.com/ShivamAmin05/Palette-Canvas-AI-Assistant", label: "View Code" }
+        ]
+    },
+    {
+        id: 3,
+        title: "Kalshi Market Maker",
+        period: "2024-Present",
+        icon: "arrow-trend-up",
+        logo: "temperature-half",
+        logoType: "icon",
+        summary: "A market-making bot for Kalshi prediction markets, designed to capitalize on real-time opportunities—especially in weather-related events. This system integrates WebSocket connections for live market updates and uses Selenium automation to scrape bid-ask spreads directly from Kalshi's interface in real time. It implements an automated trading strategy that dynamically adjusts orders to maintain tight spreads, provide liquidity, and profit from market inefficiencies. Ideal for users interested in algorithmic trading and data-driven arbitrage in regulated event markets.",
+        technologies: ["Python", "Selenium", "Matplotlib"],
+        links: [
+            { type: "code", url: "https://github.com/eshan327/kalshi_scraper", label: "View Code" }
+        ]
+    },
+    {
+        id: 4,
+        title: "Unity Parkour Game",
+        period: "2022-2023",
+        icon: "person-running",
+        logo: "gamepad",
+        logoType: "icon",
+        summary: "Collaborative 3D parkour game featuring fluid character movement mechanics and realistic physics. Developed using agile methodologies with version control for seamless team coordination and rapid prototyping.",
+        technologies: ["C#", "Unity Engine", "Git", "3D Modeling", "Animation Rigging", "Physics Systems", "Game Design", "Team Collaboration"],
+        links: [
+            { type: "code", url: "https://github.com/ShivamAmin05/Game-Project", label: "View Code" }
+        ]
+    },
+])
+
+const stats = ref([
+    { label: "Projects Completed", value: "4+", icon: "rocket" },
+    { label: "Technologies Used", value: "15+", icon: "cogs" },
+    { label: "Years of Experience", value: "4+", icon: "chart-line" },
+    { label: "Lines of Code", value: "10K+", icon: "code" }
+])
+
+const animateProjects = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const id = parseInt(entry.target.dataset.id)
+                visibleItems.value = new Set([...visibleItems.value, id])
+            }
+        })
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    })
+
+    const elements = document.querySelectorAll('.project-item')
+    elements.forEach(el => observer.observe(el))
+}
+
+onMounted(async () => {
+    await nextTick()
+    setTimeout(animateProjects, 200)
+})
 </script>
+
 <template>
-    <div class="flex flex-row">
-        <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-left>
-            <Tilt>
-                <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
-                    <h1 class="mb-2 text-2xl font-bold">Canvas-AI Chrome Extension(Palette)</h1>
-                    <section class="flex items-center">
-                        <img :src="Canvas" class="w-8 h-8 mr-4 rounded" />
-                        <h2 class="font-2xl">2024-Present</h2>
-                    </section>
-                    <li>
-                        Creating fluid and reactive UI to display text input and responses utilizing Typescript with React and Tailwind css
-                    </li>
-                    <li>
-                        Utilizing Python web scrapper with Canvas LMS API to allow users to collect information about their canvas courses 
-                    </li>
-                    <li>
-                        Hosting llama llm locally on linux cloud vm allowing constant access across several different devices
-                    </li>
-                    <li>
-                        Passing in canvas data along with user query into llama llm to generate responses relating to canvas info 
-                    </li>
+    <div class="min-h-screen py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div v-for="(project, index) in projects" :key="project.id" :data-id="project.id"
+                    class="project-item transition-all duration-700 ease-out" :class="{
+                        'opacity-100 translate-y-0': visibleItems.has(project.id),
+                        'opacity-0 translate-y-12': !visibleItems.has(project.id)
+                    }" :style="{ transitionDelay: `${index * 150}ms` }">
+                    <Tilt>
+                        <div class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 hover:border-blue-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-blue-500/20 relative overflow-hidden group transform-gpu"
+                            style="transform-style: preserve-3d;">
+                            <!-- Tilt Glare Effect -->
+                            <div
+                                class="tilt-glare absolute inset-0 pointer-events-none rounded-2xl opacity-0 transition-opacity duration-300">
+                            </div>
+
+                            <!-- Enhanced Hover Gradient Overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Animated Background Pattern -->
+                            <div
+                                class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                                <div
+                                    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)] animate-pulse">
+                                </div>
+                            </div>
+
+                            <!-- Enhanced Header -->
+                            <div class="relative z-10 mb-8">
+                                <div class="flex items-start justify-between mb-6">
+                                    <div class="flex items-center space-x-5">
+                                        <div class="relative">
+                                            <div
+                                                class="w-20 h-20 bg-gradient-to-br from-slate-800/80 to-slate-700/60 backdrop-blur-xl border-2 border-white/30 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-blue-400/50 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/25">
+                                                <!-- Dynamic Logo Display -->
+                                                <div v-if="project.logoType === 'image'"
+                                                    class="w-12 h-12 rounded-lg overflow-hidden">
+                                                    <img :src="project.logo" :alt="project.title"
+                                                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                                </div>
+                                                <font-awesome-icon v-else-if="project.logoType === 'icon'"
+                                                    :icon="project.logo"
+                                                    class="text-3xl text-white/90 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+                                                <span v-else
+                                                    class="text-3xl group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">{{
+                                                        project.logo }}</span>
+
+                                                <div
+                                                    class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                                </div>
+                                                <div
+                                                    class="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-300 group-hover:to-purple-300 group-hover:bg-clip-text transition-all duration-300 leading-tight">
+                                                {{ project.title }}
+                                            </h2>
+                                            <div
+                                                class="inline-flex items-center bg-gradient-to-r from-blue-500/90 via-purple-500/90 to-blue-500/90 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 border border-white/20 hover:border-white/40">
+                                                <font-awesome-icon icon="calendar-alt" class="mr-2" />
+                                                {{ project.period }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <font-awesome-icon :icon="project.icon"
+                                            class="text-4xl text-white/20 group-hover:text-white/60 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 filter drop-shadow-lg" />
+                                        <font-awesome-icon :icon="project.icon"
+                                            class="absolute inset-0 text-4xl text-white/0 group-hover:text-white/30 transition-all duration-500 blur-sm" />
+                                    </div>
+                                </div>
+
+                                <!-- Decorative line -->
+                                <div
+                                    class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:via-blue-400/40 transition-colors duration-500">
+                                </div>
+                            </div>
+
+                            <!-- Summary Section -->
+                            <div class="relative z-10 mb-6">
+                                <h3 class="text-lg font-semibold text-blue-300 mb-3 flex items-center">
+                                    <font-awesome-icon icon="clipboard-list" class="mr-2" />
+                                    Summary
+                                </h3>
+                                <p
+                                    class="text-white/80 leading-relaxed text-sm font-medium hover:text-white/90 transition-colors duration-200">
+                                    {{ project.summary }}
+                                </p>
+                            </div>
+
+                            <!-- Technologies Section -->
+                            <div class="relative z-10 mb-6">
+                                <h3 class="text-lg font-semibold text-purple-300 mb-3 flex items-center">
+                                    <font-awesome-icon icon="screwdriver-wrench" class="mr-2" />
+                                    Technologies Used
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span v-for="tech in project.technologies" :key="tech"
+                                        class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
+                                        <font-awesome-icon icon="code" class="mr-1.5 text-xs" />
+                                        {{ tech }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Action Links Section -->
+                            <div class="relative z-10 mb-4" v-if="project.links && project.links.length > 0">
+                                <div class="flex flex-wrap gap-3 pt-4 border-t border-white/10">
+                                    <a v-for="link in project.links" :key="link.url" :href="link.url" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center bg-gradient-to-r from-blue-600/90 to-purple-600/90 hover:from-blue-500 hover:to-purple-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 border border-white/20 hover:border-white/40 backdrop-blur-sm group">
+                                        <font-awesome-icon :icon="link.type === 'website' ? 'cloud' : 'code'"
+                                            class="mr-2 text-sm group-hover:rotate-12 transition-transform duration-300" />
+                                        {{ link.label }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Enhanced Bottom Elements -->
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
+                            </div>
+
+                            <!-- Enhanced Corner Accents -->
+                            <div
+                                class="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-blue-500/30 group-hover:border-blue-400/60 transition-all duration-500 group-hover:w-20 group-hover:h-20">
+                            </div>
+                            <div
+                                class="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500 group-hover:w-16 group-hover:h-16">
+                            </div>
+
+                            <!-- Floating particles effect -->
+                            <div
+                                class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full animate-pulse">
+                                </div>
+                                <div class="absolute top-3/4 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse"
+                                    style="animation-delay: 0.5s;"></div>
+                                <div class="absolute bottom-1/3 left-2/3 w-1 h-1 bg-pink-400 rounded-full animate-pulse"
+                                    style="animation-delay: 1s;"></div>
+                            </div>
+                        </div>
+                    </Tilt>
                 </div>
-            </Tilt>
-        </div>
-        <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-right>
-            <Tilt>
-                <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
-                    <h1 class="mb-2 text-2xl font-bold">Apex Quant Backtesting Engine	</h1>
-                    <section class="flex items-center">
-                        <img :src="Backtesting" class="w-8 h-8 mr-4 rounded" />
-                        <h2 class="font-2xl">2024-Present</h2>
-                    </section>
-                    <li>
-                        Obtaining Forex pair price data using Yahoo Finance and processing with Pandas data frame for simplified manipulation
-                    </li>
-                    <li>
-                        Calculating long and short-term moving average to simulate trading strategy which holds and sells based on average crossovers
-                    </li>
-                    <li>
-                        Implementing risk management strategy which limits position size based on capital and stops trading if loss exceeds a threshold
-                    </li>
-                    <li>
-                        Plotting equity curve with Matplotlib and calculating key statistics including winning percentage and total profit/loss
-                    </li>
+            </div>
+
+            <!-- Enhanced Stats Section -->
+            <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div v-for="(stat, index) in stats" :key="index"
+                    class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 text-center hover:border-blue-400/40 hover:bg-slate-800/60 transition-all duration-500 group relative overflow-hidden"
+                    style="transform-style: preserve-3d;">
+                    <div
+                        class="tilt-glare absolute inset-0 pointer-events-none rounded-2xl opacity-0 transition-opacity duration-300">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="text-4xl mb-4 group-hover:scale-125 transition-all duration-500 group-hover:rotate-12 filter drop-shadow-lg">
+                            <font-awesome-icon :icon="stat.icon" class="text-white/80" />
+
+                        </div>
+                        <div
+                            class="text-3xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                            {{ stat.value }}
+                        </div>
+                        <div
+                            class="text-white/70 text-sm font-medium group-hover:text-white/90 transition-colors duration-300">
+                            {{ stat.label }}
+                        </div>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500">
+                    </div>
                 </div>
-            </Tilt>
+            </div>
         </div>
     </div>
-    <div class="flex flex-row">
-        <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-left>
-            <Tilt>
-                <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
-                    <h1 class="mb-2 text-2xl font-bold">Unity Parkour Game</h1>
-                    <section class="flex items-center">
-                        <img :src="Unity" class="w-8 h-8 mr-4 rounded" />
-                        <h2 class="font-2xl">2022-2023</h2>
-                    </section>
-                    <li>
-                        Collaborated with two team members to create a 3d parkour game using C# in the unity game engine
-                    </li>
-                    <li>
-                        Rapidly prototyped new iterations for project ideas with team members by utilizing git repositories
-                        and version control
-                    </li>
-                    <li>
-                        Developed character movement abilities and player controls including wall running, jumping, and
-                        sliding
-                    </li>
-                    <li>
-                        Rigged up character model to allow for smooth animation transitions between different movement
-                        positions and actions
-                    </li>
-                </div>
-            </Tilt>
-        </div>
-            <div class="w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-right>
-                <Tilt>
-                    <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
-                        <h1 class="mb-2 text-2xl font-bold">Harvard’s CS50X</h1>
-                        <section class="flex items-center">
-                            <img :src="CS50" class="w-8 h-8 mr-4 rounded" />
-                            <h2 class="font-2xl">2022</h2>
-                        </section>
-                        <li>
-                            Completed an online CS course that covered several topics including C, algorithms, and web design
-                        </li>
-                        <li>
-                            Created a stock trading website using python, flask, and SQL, allowed users to buy and sell
-                            simulated stocks based on real data
-                        </li>
-                        <li>
-                            Manipulated pixels in an image by utilizing image algorithms in C to achieve effects including
-                            grayscale, blur, and outlines.
-                        </li>
-                        <li>
-                            Learned to encrypt and decrypt data in C utilizing some common cipher technique including substitution cipher and Caesar shift
-                        </li>
-                    </div>
-                </Tilt>
-            </div>
-        </div>
-        <div class="flex flex-row">
-            <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground" v-motion-slide-visible-left>
-                <Tilt>
-                    <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white">
-                        <h1 class="mb-2 text-2xl font-bold">Tic Tac Toe Bot</h1>
-                        <section class="flex items-center">
-                            <img :src="TTT" class="w-8 h-8 mr-4 rounded" />
-                            <h2 class="font-2xl">2020</h2>
-                        </section>
-                        <li>
-                            Created an interactive, terminal-based tic tac toe game using Java where a player can compete
-                            against the computer
-                        </li>
-                        <li>
-                            Utilized minimax algorithm to allow computer to always select the most optimal move, leading to a
-                            win or draw every game
-                        </li>
-                    </div>
-                </Tilt>
-            </div>
-            <div class=" w-50 h-50 m-8 p-4 rounded shadow-2xl bg-charcoal-600 card bg-foreground">
-                <Tilt>
-                    <div class="p-3 rounded shadow-2xl bg-charcoal-600 card bg-white" v-motion-slide-visible-right>
-                        <h1 class="mb-2 text-2xl font-bold">Battleship</h1>
-                        <section class="flex items-center">
-                            <img :src="Battleship" class="w-8 h-8 mr-4 rounded" />
-                            <h2 class="font-2xl">2023</h2>
-                        </section>
-                        <li>
-                            Created terminal-based battleship game utilizing polymorphism to create classes for several separate
-                            ship and player types
-                        </li>
-                        <li>
-                            Allowed players to play against a bot and implemented hunt algorithm to improve average performance
-                            over random guesses
-                        </li>
-                    </div>
-                </Tilt>
-            </div>
-    </div>
-    </template>
-    
+</template>
+
+<style scoped>
+/* Custom scrollbar to match theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Additional custom styles for enhanced animations */
+.project-item {
+    transform-origin: center;
+}
+
+.tilt-card {
+    transform-style: preserve-3d;
+}
+
+/* Enhance the pulse animation for particles */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced gradient background animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+}
+
+/* Smooth hover transitions for technology tags */
+.tech-tag {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>
