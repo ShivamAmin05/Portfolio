@@ -27,6 +27,8 @@ import {
   faTemperatureHalf,
   faGamepad,
   faPersonRunning,
+  faRotate,
+  faUpDownLeftRight,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -57,7 +59,9 @@ library.add(
   faSchoolCircleExclamation,
   faTemperatureHalf,
   faGamepad,
-  faPersonRunning
+  faPersonRunning,
+  faRotate,
+  faUpDownLeftRight
 );
 
 createApp(App)
