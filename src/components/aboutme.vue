@@ -24,7 +24,7 @@ import Laptop from './laptop.vue'
             </p>
         </div>
         <div class="w-full md:w-1/2 p-5 flex items-center justify-center">
-            <div class="w-full h-2/3">
+            <div class="w-full min-h-[300px] md:h-2/3">
                 <Laptop />
             </div>
         </div>
