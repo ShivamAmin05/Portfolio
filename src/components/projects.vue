@@ -2,8 +2,6 @@
 import { ref, onMounted, nextTick } from 'vue'
 import Tilt from 'vanilla-tilt-vue'
 
-const visibleItems = ref(new Set())
-
 const projects = ref([
     {
         id: 1,
@@ -66,27 +64,6 @@ const stats = ref([
     { label: "Lines of Code", value: "10K+", icon: "code" }
 ])
 
-const animateProjects = () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const id = parseInt(entry.target.dataset.id)
-                visibleItems.value = new Set([...visibleItems.value, id])
-            }
-        })
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    })
-
-    const elements = document.querySelectorAll('.project-item')
-    elements.forEach(el => observer.observe(el))
-}
-
-onMounted(async () => {
-    await nextTick()
-    setTimeout(animateProjects, 200)
-})
 </script>
 
 <template>
@@ -94,11 +71,7 @@ onMounted(async () => {
         <div class="max-w-7xl mx-auto px-6">
             <!-- Projects Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div v-for="(project, index) in projects" :key="project.id" :data-id="project.id"
-                    class="project-item transition-all duration-700 ease-out" :class="{
-                        'opacity-100 translate-y-0': visibleItems.has(project.id),
-                        'opacity-0 translate-y-12': !visibleItems.has(project.id)
-                    }" :style="{ transitionDelay: `${index * 150}ms` }">
+                <div v-for="(project, index) in projects" :key="project.id" class="project-item">
                     <Tilt>
                         <div class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 hover:border-blue-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-blue-500/20 relative overflow-hidden group transform-gpu"
                             style="transform-style: preserve-3d;">

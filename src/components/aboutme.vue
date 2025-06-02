@@ -1,14 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import Laptop from './laptop.vue'
-
-const isVisible = ref(false)
-
-onMounted(() => {
-    setTimeout(() => {
-        isVisible.value = true
-    }, 200)
-})
 </script>
 
 <template>
@@ -16,12 +7,9 @@ onMounted(() => {
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Text section -->
-                <div class="transition-all duration-700 ease-out" :class="{
-                    'opacity-100 translate-y-0': isVisible,
-                    'opacity-0 translate-y-12': !isVisible
-                }">
+                <div>
                     <!-- Header -->
-                    <div class="mb-8">
+                    <div class=" mb-8">
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">
                             <font-awesome-icon :icon="['fas', 'book-open-reader']" class="mr-4" />
                             About Me
@@ -91,61 +79,56 @@ onMounted(() => {
                 </div>
 
                 <!-- 3D Laptop section -->
-                <div class="transition-all duration-700 ease-out" :class="{
-                    'opacity-100 translate-y-0': isVisible,
-                    'opacity-0 translate-y-12': !isVisible
-                }" style="transition-delay: 300ms;">
-                    <div class="relative group">
-                        <!-- Main container with glassmorphism effect -->
+                <div class="relative group">
+                    <!-- Main container with glassmorphism effect -->
+                    <div
+                        class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:border-blue-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-blue-500/20 relative overflow-hidden">
+
+                        <!-- Subtle background gradient -->
                         <div
-                            class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:border-blue-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-blue-500/20 relative overflow-hidden">
+                            class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
 
-                            <!-- Subtle background gradient -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            </div>
-
-                            <!-- Header for the laptop section -->
-                            <div class="relative z-10 mb-6">
-                                <div class="flex items-center justify-between">
-                                    <h3 class="text-xl font-semibold text-white flex items-center">
-                                        <font-awesome-icon icon="up-down-left-right" spin class="mr-3 text-blue-400" />
-                                        Drag to Rotate/Zoom
-                                    </h3>
-                                    <div class="flex space-x-2">
-                                        <div class="w-3 h-3 bg-red-500 rounded-full opacity-60"></div>
-                                        <div class="w-3 h-3 bg-yellow-500 rounded-full opacity-60"></div>
-                                        <div class="w-3 h-3 bg-green-500 rounded-full opacity-60"></div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mt-4 group-hover:via-blue-400/40 transition-colors duration-500">
+                        <!-- Header for the laptop section -->
+                        <div class="relative z-10 mb-6">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-semibold text-white flex items-center">
+                                    <font-awesome-icon icon="up-down-left-right" spin class="mr-3 text-blue-400" />
+                                    Drag to Rotate/Zoom
+                                </h3>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full opacity-60"></div>
+                                    <div class="w-3 h-3 bg-yellow-500 rounded-full opacity-60"></div>
+                                    <div class="w-3 h-3 bg-green-500 rounded-full opacity-60"></div>
                                 </div>
                             </div>
-
-                            <!-- 3D Laptop Canvas -->
-                            <div class="relative z-10 w-full h-[450px] md:h-[500px]">
-                                <Laptop />
-                            </div>
-
-                            <!-- Bottom accent line -->
                             <div
-                                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
-                            </div>
-
-                            <!-- Corner accents -->
-                            <div
-                                class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-500/30 group-hover:border-blue-400/60 transition-all duration-500">
-                            </div>
-                            <div
-                                class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500">
+                                class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mt-4 group-hover:via-blue-400/40 transition-colors duration-500">
                             </div>
                         </div>
 
-                        <!-- Subtle glow effect behind the container -->
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10">
+                        <!-- 3D Laptop Canvas -->
+                        <div class="relative z-10 w-full h-[450px] md:h-[500px]">
+                            <Laptop />
                         </div>
+
+                        <!-- Bottom accent line -->
+                        <div
+                            class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
+                        </div>
+
+                        <!-- Corner accents -->
+                        <div
+                            class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-500/30 group-hover:border-blue-400/60 transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Subtle glow effect behind the container -->
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10">
                     </div>
                 </div>
             </div>

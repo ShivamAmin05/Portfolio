@@ -75,7 +75,7 @@ onLoop(() => {
 </script>
 
 <template>
-    <TresCanvas alpha shadows :output-color-space="'srgb'" antialias v-bind="gl" v-motion-slide-visible-right>
+    <TresCanvas alpha shadows :output-color-space="'srgb'" antialias v-bind="gl" v-motion-fade-visible>
 
         <TresPerspectiveCamera :zoom="3.5" :position="[-3, 2, 6]" />
         <OrbitControls :enable-pan="false" :max-polar-angle="1.4" :min-polar-angle="-1.4" :maxZoom="1"

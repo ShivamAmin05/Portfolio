@@ -100,33 +100,6 @@ export default {
             },
         ])
 
-        const animateTimeline = () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.remove('opacity-0', 'translate-y-12')
-                            entry.target.classList.add('opacity-100', 'translate-y-0')
-                        }, index * 150)
-                    }
-                })
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            })
-
-            const timelineElements = document.querySelectorAll('.timeline-item')
-            timelineElements.forEach(el => {
-                el.classList.add('transition-all', 'duration-700', 'ease-out')
-                observer.observe(el)
-            })
-        }
-
-        onMounted(async () => {
-            await nextTick()
-            setTimeout(animateTimeline, 200)
-        })
-
         return {
             timelineItems
         }
@@ -137,7 +110,6 @@ export default {
 <template>
     <div class="min-h-screen py-20">
         <div class="max-w-6xl mx-auto px-6">
-
             <div class="relative">
                 <div
                     class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 via-purple-400 to-blue-400 rounded-full shadow-lg h-full hidden md:block">
@@ -146,8 +118,7 @@ export default {
                     class="absolute left-8 w-1 bg-gradient-to-b from-blue-400 via-purple-400 to-blue-400 rounded-full shadow-lg h-full md:hidden">
                 </div>
 
-                <div v-for="(item, index) in timelineItems" :key="item.id"
-                    class="timeline-item relative mb-12 opacity-0 transform translate-y-12"
+                <div v-for="(item, index) in timelineItems" :key="item.id" class="timeline-item relative mb-12"
                     :class="`delay-${index * 100}`">
 
                     <!-- Desktop Layout -->
@@ -294,26 +265,6 @@ export default {
 </template>
 
 <style scoped>
-.delay-0 {
-    animation-delay: 0ms;
-}
-
-.delay-100 {
-    animation-delay: 100ms;
-}
-
-.delay-200 {
-    animation-delay: 200ms;
-}
-
-.delay-300 {
-    animation-delay: 300ms;
-}
-
-.delay-400 {
-    animation-delay: 400ms;
-}
-
 /* Custom scrollbar to match navbar */
 ::-webkit-scrollbar {
     width: 8px;
