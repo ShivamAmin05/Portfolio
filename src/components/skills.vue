@@ -194,7 +194,7 @@ import vue from '/Models/Skills/VueBall.glb'
                         <span
                             v-for="skill in ['React', 'C', 'SQL', 'Assembly', 'OCaml', 'Rust', 'R', 'Matlab', 'TensorFlow', 'PyTorch', 'NumPy', 'Polars', 'Pandas', 'Django', 'XML']"
                             :key="skill"
-                            class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-2 rounded-full text-sm font-medium border border-white/20 hover:border-purple-400/40 hover:bg-gradient-to-r hover:from-purple-600/80 hover:to-pink-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 cursor-default group/skill">
+                            class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 group/skill">
                             <font-awesome-icon icon="code"
                                 class="mr-1.5 text-xs group-hover/skill:rotate-12 transition-transform duration-300" />
                             {{ skill }}
@@ -202,12 +202,12 @@ import vue from '/Models/Skills/VueBall.glb'
                     </div>
                 </div>
 
-                <!-- Enhanced Bottom Elements -->
+                <!-- Bottom Line -->
                 <div
                     class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
                 </div>
 
-                <!-- Enhanced Corner Accents -->
+                <!-- Corner Accents -->
                 <div
                     class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500 group-hover:w-16 group-hover:h-16">
                 </div>

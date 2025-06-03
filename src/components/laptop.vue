@@ -22,9 +22,9 @@ const glComposer = {
 const effectProps = {
     blendFunction: THREE.NormalBlending,
     asciiTexture: {
-        characters: ' .,:;-~+=*ilfCGHELOWRD08@#█▓▒░',
+        characters: 'HELOWRD',
     },
-    cellSize: 12,
+    cellSize: 14,
     backgroundColor: new THREE.Color(0x000000),
     // invert: false,
 }
@@ -78,7 +78,7 @@ onLoop(() => {
     <TresCanvas alpha shadows :output-color-space="'srgb'" antialias v-bind="gl" v-motion-fade-visible>
 
         <TresPerspectiveCamera :zoom="3.5" :position="[-3, 2, 6]" />
-        <OrbitControls :enable-pan="false" :max-polar-angle="1.4" :min-polar-angle="-1.4" :maxZoom="1"
+        <OrbitControls :enable-pan="false" :max-polar-angle="1.5" :min-polar-angle="-1.4" :maxZoom="1"
             :enable-zoom="true" />
 
         <TresGroup ref="modelGroupRef" />

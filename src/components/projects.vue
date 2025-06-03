@@ -11,7 +11,7 @@ const projects = ref([
         logo: "volume-high", // Replace with actual path or use Font Awesome
         logoType: "icon", // "image" or "icon" or "emoji"
         summary: "Award-winning machine learning project that achieved 1st place out of 300+ participants for developing an innovative classification system for nonverbal vocalizations in autistic individuals using advanced audio processing and deep learning techniques.",
-        technologies: ["Python", "Polars", "Pytorch", , "Scikit-learn", "Librosa", "Javascript", "HTML", "CSS"],
+        technologies: ["Python", "Polars", "Pytorch", "Scikit-learn", "Librosa", "Javascript", "HTML", "CSS"],
         links: [
             { type: "website", url: "https://learningtheunspoken.github.io", label: "View Website" }
         ]
@@ -50,7 +50,7 @@ const projects = ref([
         logo: "gamepad",
         logoType: "icon",
         summary: "Collaborative 3D parkour game featuring fluid character movement mechanics and realistic physics. Developed using agile methodologies with version control for seamless team coordination and rapid prototyping.",
-        technologies: ["C#", "Unity Engine", "Git", "3D Modeling", "Animation Rigging", "Physics Systems", "Game Design", "Team Collaboration"],
+        technologies: ["C#", "Unity", "Blender"],
         links: [
             { type: "code", url: "https://github.com/ShivamAmin05/Game-Project", label: "View Code" }
         ]
@@ -167,8 +167,9 @@ const stats = ref([
                                 </h3>
                                 <div class="flex flex-wrap gap-2">
                                     <span v-for="tech in project.technologies" :key="tech"
-                                        class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
-                                        <font-awesome-icon icon="code" class="mr-1.5 text-xs" />
+                                        class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 group/tech">
+                                        <font-awesome-icon icon="code"
+                                            class="mr-1.5 text-xs group-hover/tech:rotate-12 transition-transform duration-300" />
                                         {{ tech }}
                                     </span>
                                 </div>
@@ -187,12 +188,12 @@ const stats = ref([
                                 </div>
                             </div>
 
-                            <!-- Enhanced Bottom Elements -->
+                            <!-- Bottom Line -->
                             <div
                                 class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
                             </div>
 
-                            <!-- Enhanced Corner Accents -->
+                            <!-- Corner Accents -->
                             <div
                                 class="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-blue-500/30 group-hover:border-blue-400/60 transition-all duration-500 group-hover:w-20 group-hover:h-20">
                             </div>
