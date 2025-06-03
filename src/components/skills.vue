@@ -12,14 +12,15 @@ import csharp from '/Models/Skills/CSharpBall.glb'
 import blender from '/Models/Skills/BlenderBall.glb'
 import unity from '/Models/Skills/UnityBall.glb'
 import vue from '/Models/Skills/VueBall.glb'
+
 </script>
 
 <template>
     <div class="w-screen h-screen flex justify-center mt-10 flex-col">
-        <div class="w-full h-1/2">
+        <div class="w-full h-1/2 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:h-1/2">
             <TresCanvas alpha shadows tone-mapping="ACESFilmic" :output-color-space="'srgb'" antialias
                 v-motion-slide-visible-bottom>
-                <TresPerspectiveCamera :position="[0, 10, 0]" :look-at="[0, 10, 0]" />
+                <TresPerspectiveCamera :zoom="0.7" :position="[0, 10, 0]" :look-at="[0, 10, 0]" />
                 <OrbitControls :enable-pan="false" :max-polar-angle="1.4" :min-polar-angle="-1.4"
                     :max-azimuth-angle="0.4" :min-azimuth-angle="-0.4" :enable-zoom="false" />
 
@@ -107,67 +108,69 @@ import vue from '/Models/Skills/VueBall.glb'
                 <TresAmbientLight :intensity="0.2" color="#404060" />
             </TresCanvas>
         </div>
-        <div class=" flex flex-col mt-16">
+
+        <!-- Fixed responsive skills section -->
+        <div class="flex flex-col mt-8 md:mt-16 px-4 sm:px-6 lg:px-8 pb-8 md:pb-16">
             <!-- Primary Skills -->
-            <div class="mb-8">
-                <div class="flex flex-wrap justify-center gap-3">
+            <div class="mb-6 md:mb-8 w-full">
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-6xl mx-auto">
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-300 px-4 py-2 rounded-full text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'java']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'java']" class="mr-1.5 sm:mr-2 text-xs" />
                         Java
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium hover:border-blue-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'python']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-blue-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-blue-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'python']" class="mr-1.5 sm:mr-2 text-xs" />
                         Python
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-medium hover:border-yellow-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'js']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-yellow-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-yellow-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'js']" class="mr-1.5 sm:mr-2 text-xs" />
                         JavaScript
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-orange-300 px-4 py-2 rounded-full text-sm font-medium hover:border-orange-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon icon="blender" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-orange-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-orange-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon icon="blender" class="mr-1.5 sm:mr-2 text-xs" />
                         Blender
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium hover:border-emerald-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'vuejs']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-emerald-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-emerald-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'vuejs']" class="mr-1.5 sm:mr-2 text-xs" />
                         Vue
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-red-300 px-4 py-2 rounded-full text-sm font-medium hover:border-red-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'html5']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-red-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-red-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'html5']" class="mr-1.5 sm:mr-2 text-xs" />
                         HTML
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium hover:border-cyan-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'css3-alt']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-cyan-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-cyan-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'css3-alt']" class="mr-1.5 sm:mr-2 text-xs" />
                         CSS
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-500 px-4 py-2 rounded-full text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'github']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-500 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'github']" class="mr-1.5 sm:mr-2 text-xs" />
                         Git
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'microsoft']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-300 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'microsoft']" class="mr-1.5 sm:mr-2 text-xs" />
                         C#
                     </span>
                     <span
-                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-500 px-4 py-2 rounded-full text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
-                        <font-awesome-icon :icon="['fab', 'unity']" class="mr-2 text-xs" />
+                        class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-500 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                        <font-awesome-icon :icon="['fab', 'unity']" class="mr-1.5 sm:mr-2 text-xs" />
                         Unity
                     </span>
                 </div>
             </div>
 
             <!-- Secondary Skills -->
-            <div class="max-w-5xl mx-auto px-6">
+            <div class="w-full max-w-5xl mx-auto">
                 <div
-                    class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:border-purple-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden group">
+                    class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 lg:p-8 transition-all duration-500 hover:border-purple-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden group">
                     <!-- Enhanced Hover Gradient Overlay -->
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -181,25 +184,25 @@ import vue from '/Models/Skills/VueBall.glb'
                     </div>
 
                     <div class="relative z-10">
-                        <div class="flex items-center mb-6">
+                        <div class="flex items-center mb-4 sm:mb-6">
                             <div
-                                class="w-16 h-16 bg-gradient-to-br from-slate-800/80 to-slate-700/60 backdrop-blur-xl border-2 border-white/30 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-purple-400/50 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/25 mr-4">
+                                class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-slate-800/80 to-slate-700/60 backdrop-blur-xl border-2 border-white/30 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-purple-400/50 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/25 mr-3 sm:mr-4">
                                 <font-awesome-icon icon="cogs"
-                                    class="text-2xl text-white/90 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+                                    class="text-lg sm:text-2xl text-white/90 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
                             </div>
                             <h3
-                                class="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-pink-300 group-hover:bg-clip-text transition-all duration-300">
+                                class="text-lg sm:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-pink-300 group-hover:bg-clip-text transition-all duration-300">
                                 Additional Technologies
                             </h3>
                         </div>
 
-                        <div class="flex flex-wrap gap-2.5">
+                        <div class="flex flex-wrap gap-2 sm:gap-2.5">
                             <span
                                 v-for="skill in ['React', 'C', 'SQL', 'Assembly', 'OCaml', 'Rust', 'R', 'Matlab', 'TensorFlow', 'PyTorch', 'NumPy', 'Polars', 'Pandas', 'Django', 'XML']"
                                 :key="skill"
-                                class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 group/skill">
+                                class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium border border-white/20 hover:border-blue-400/40 hover:bg-slate-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 group/skill">
                                 <font-awesome-icon icon="code"
-                                    class="mr-1.5 text-xs group-hover/skill:rotate-12 transition-transform duration-300" />
+                                    class="mr-1 sm:mr-1.5 text-xs group-hover/skill:rotate-12 transition-transform duration-300" />
                                 {{ skill }}
                             </span>
                         </div>
@@ -210,12 +213,12 @@ import vue from '/Models/Skills/VueBall.glb'
                         class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
                     </div>
 
-                    <!-- Corner Accents -->
+                    <!-- Corner Accents - Responsive -->
                     <div
-                        class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500 group-hover:w-16 group-hover:h-16">
+                        class="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500 group-hover:w-10 group-hover:h-10 sm:group-hover:w-16 sm:group-hover:h-16">
                     </div>
                     <div
-                        class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-pink-500/30 group-hover:border-pink-400/60 transition-all duration-500 group-hover:w-12 group-hover:h-12">
+                        class="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-pink-500/30 group-hover:border-pink-400/60 transition-all duration-500 group-hover:w-8 group-hover:h-8 sm:group-hover:w-12 sm:group-hover:h-12">
                     </div>
 
                     <!-- Floating particles effect -->
