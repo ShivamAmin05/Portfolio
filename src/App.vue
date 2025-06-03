@@ -49,7 +49,9 @@ import Planet from './components/planet.vue'
     </h1>
   </div>
   <Projects />
-  <Footer />
+  <div id="contact">
+    <Footer />
+  </div>
 </template>
 
 <style scoped>
