@@ -35,13 +35,7 @@ import Planet from './components/planet.vue'
       Skills
     </h1>
   </div>
-  <Suspense>
-    <div class="h-screen w-screen">
-      <div class="h-1/2">
-        <Skills />
-      </div>
-    </div>
-  </Suspense>
+  <Skills />
   <div id="projects" class="flex justify-center mt-10">
     <h1 class="text-5xl md:text-8xl font-bold" v-motion-pop-visible>
       <font-awesome-icon :icon="['fas', 'computer']" />

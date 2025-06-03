@@ -182,7 +182,7 @@ const stats = ref([
                                         rel="noopener noreferrer"
                                         class="inline-flex items-center bg-gradient-to-r from-blue-600/90 to-purple-600/90 hover:from-blue-500 hover:to-purple-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 border border-white/20 hover:border-white/40 backdrop-blur-sm group">
                                         <font-awesome-icon :icon="link.type === 'website' ? 'cloud' : 'code'"
-                                            class="mr-2 text-sm group-hover:rotate-12 transition-transform duration-300" />
+                                            class="mr-2 text-sm group/hover:rotate-12 transition-transform duration-300" />
                                         {{ link.label }}
                                     </a>
                                 </div>
