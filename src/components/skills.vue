@@ -104,11 +104,168 @@ import vue from '/Models/Skills/VueBall.glb'
         <TresDirectionalLight :position="[10, 8, 10]" :intensity="1.4" color="#fff2cc" />
         <TresAmbientLight :intensity="0.2" color="#404060" />
     </TresCanvas>
+    <div class="mt-16">
+        <!-- Primary Skills -->
+        <div class="mb-8">
+            <div class="flex flex-wrap justify-center gap-3">
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-300 px-4 py-2 rounded-full text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'java']" class="mr-2 text-xs" />
+                    Java
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium hover:border-blue-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'python']" class="mr-2 text-xs" />
+                    Python
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-medium hover:border-yellow-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'js']" class="mr-2 text-xs" />
+                    JavaScript
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-orange-300 px-4 py-2 rounded-full text-sm font-medium hover:border-orange-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon icon="blender" class="mr-2 text-xs" />
+                    Blender
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium hover:border-emerald-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'vuejs']" class="mr-2 text-xs" />
+                    Vue
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-red-300 px-4 py-2 rounded-full text-sm font-medium hover:border-red-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'html5']" class="mr-2 text-xs" />
+                    HTML
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium hover:border-cyan-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'css3-alt']" class="mr-2 text-xs" />
+                    CSS
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-500 px-4 py-2 rounded-full text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'github']" class="mr-2 text-xs" />
+                    Git
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium hover:border-purple-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'microsoft']" class="mr-2 text-xs" />
+                    C#
+                </span>
+                <span
+                    class="inline-flex items-center bg-slate-900/60 backdrop-blur-xl border border-white/20 text-gray-500 px-4 py-2 rounded-full text-sm font-medium hover:border-gray-400/40 transition-all duration-200 hover:scale-105 cursor-default">
+                    <font-awesome-icon :icon="['fab', 'unity']" class="mr-2 text-xs" />
+                    Unity
+                </span>
+            </div>
+        </div>
 
-    <p class="font-medium text-center mt-5 text-lg" v-motion-fade-visible>Java, Python,
-        JavaScript, Blender, Vue, HTML, CSS, Github, C#, Unity
-    </p>
-    <p class="font-medium text-center mt-5 text-md" v-motion-fade-visible>
-        React, C, Git, SQL, Assembly, OCaml, Rust, R, Matlab, TensorFlow, PyTorch, NumPy, Polars, Pandas, React, Django
-    </p>
+        <!-- Secondary Skills -->
+        <div class="max-w-5xl mx-auto">
+            <div
+                class="bg-slate-900/60 backdrop-blur-xl border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:border-purple-400/40 hover:bg-slate-800/60 hover:shadow-2xl hover:shadow-purple-500/20 relative overflow-hidden group">
+                <!-- Enhanced Hover Gradient Overlay -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <!-- Animated Background Pattern -->
+                <div class="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.1),transparent_50%)] animate-pulse">
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-slate-800/80 to-slate-700/60 backdrop-blur-xl border-2 border-white/30 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-purple-400/50 shadow-lg group-hover:shadow-xl group-hover:shadow-purple-500/25 mr-4">
+                            <font-awesome-icon icon="cogs"
+                                class="text-2xl text-white/90 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+                        </div>
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-pink-300 group-hover:bg-clip-text transition-all duration-300">
+                            Additional Technologies
+                        </h3>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2.5">
+                        <span
+                            v-for="skill in ['React', 'C', 'SQL', 'Assembly', 'OCaml', 'Rust', 'R', 'Matlab', 'TensorFlow', 'PyTorch', 'NumPy', 'Polars', 'Pandas', 'Django', 'XML']"
+                            :key="skill"
+                            class="inline-flex items-center bg-gradient-to-r from-slate-700/80 to-slate-600/80 backdrop-blur-sm text-white/90 px-3 py-2 rounded-full text-sm font-medium border border-white/20 hover:border-purple-400/40 hover:bg-gradient-to-r hover:from-purple-600/80 hover:to-pink-600/80 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 cursor-default group/skill">
+                            <font-awesome-icon icon="code"
+                                class="mr-1.5 text-xs group-hover/skill:rotate-12 transition-transform duration-300" />
+                            {{ skill }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Enhanced Bottom Elements -->
+                <div
+                    class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out">
+                </div>
+
+                <!-- Enhanced Corner Accents -->
+                <div
+                    class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-purple-500/30 group-hover:border-purple-400/60 transition-all duration-500 group-hover:w-16 group-hover:h-16">
+                </div>
+                <div
+                    class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-pink-500/30 group-hover:border-pink-400/60 transition-all duration-500 group-hover:w-12 group-hover:h-12">
+                </div>
+
+                <!-- Floating particles effect -->
+                <div
+                    class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+                    <div class="absolute top-3/4 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-pulse"
+                        style="animation-delay: 0.5s;"></div>
+                    <div class="absolute bottom-1/3 left-2/3 w-1 h-1 bg-blue-400 rounded-full animate-pulse"
+                        style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
+
+<style scoped>
+/* Enhanced gradient background animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-to-br {
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+}
+
+/* Enhanced pulse animation for particles */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+</style>

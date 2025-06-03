@@ -29,11 +29,21 @@ import {
   faPersonRunning,
   faRotate,
   faUpDownLeftRight,
+  faCogs,
+  faBlender,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
   faChrome,
+  faJava,
+  faPython,
+  faJs,
+  faHtml5,
+  faVuejs,
+  faCss3Alt,
+  faUnity,
+  faMicrosoft,
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -61,7 +71,17 @@ library.add(
   faGamepad,
   faPersonRunning,
   faRotate,
-  faUpDownLeftRight
+  faUpDownLeftRight,
+  faJava,
+  faPython,
+  faCogs,
+  faJs,
+  faHtml5,
+  faBlender,
+  faVuejs,
+  faCss3Alt,
+  faUnity,
+  faMicrosoft
 );
 
 createApp(App)
